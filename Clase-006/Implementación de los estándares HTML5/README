@@ -1,0 +1,30 @@
+# Implementación de estándares W3C: HTML5 y CSS3
+
+Este proyecto presenta una implementación práctica de los estándares **HTML5** y **CSS3**, aplicando estructura semántica y diseño responsivo mediante Flexbox. El objetivo fue demostrar cómo estos estándares permiten construir interfaces modernas, accesibles y organizadas.
+
+## 📌 Estándar aplicado
+### HTML5
+- Se utilizaron etiquetas semánticas como `header`, `nav`, `main`, `section`, `article`, `aside` y `footer`.
+- Estas etiquetas mejoran la comprensión del contenido, la accesibilidad y el SEO.
+
+### CSS3
+- Se implementó Flexbox en la navegación, tarjetas y layout del contenido.
+- Se añadieron variables CSS, sombras, bordes redondeados y media queries para responsividad.
+- El diseño se adapta a pantallas móviles y de escritorio.
+
+## 🛠️ ¿Qué se implementó?
+- Una página completa estructurada con HTML5 semántico.
+- Barra de navegación con Flexbox.
+- Tarjetas informativas usando Flexbox y estilos modernos.
+- Ejemplo de layout principal + aside adaptativo.
+- Estilos responsivos con media queries.
+- Separación clara entre estructura (HTML) y presentación (CSS).
+
+## 🎯 ¿Qué aprendimos?
+- Cómo usar HTML5 para estructurar contenido de manera más clara y lógica.
+- La importancia de Flexbox para crear layouts limpios y adaptables.
+- Cómo CSS3 permite aplicar diseño moderno con sombras, bordes, variables y responsividad.
+- La relevancia de seguir estándares W3C para garantizar compatibilidad, accesibilidad y buenas prácticas.
+
+## 📁 Archivos del proyecto
+- `index.html` — Pá

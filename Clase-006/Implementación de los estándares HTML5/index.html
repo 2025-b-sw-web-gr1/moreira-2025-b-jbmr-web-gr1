@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Implementación de estándares W3C</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <h1>Explorando estándares W3C</h1>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#introduccion">Introducción</a></li>
+          <li><a href="#caracteristicas">Características</a></li>
+          <li><a href="#ejemplo">Ejemplo práctico</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="introduccion" class="section container">
+      <header>
+        <h2>Implementación con HTML5 y CSS3</h2>
+      </header>
+      <article>
+        <p>
+          Esta página es un ejemplo práctico donde se aplican los estándares
+          <strong>HTML5</strong> y <strong>CSS3</strong> definidos por el W3C.
+          Se utilizan etiquetas semánticas, diseño responsivo y Flexbox para
+          organizar el contenido de forma clara y accesible.
+        </p>
+      </article>
+    </section>
+
+    <section id="caracteristicas" class="section section-alt">
+      <div class="container">
+        <header>
+          <h2>Características principales</h2>
+        </header>
+
+        <div class="features">
+          <article class="card">
+            <h3>HTML5 semántico</h3>
+            <p>
+              Uso de etiquetas como <code>&lt;header&gt;</code>,
+              <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>,
+              <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code> y
+              <code>&lt;footer&gt;</code> para describir mejor la estructura
+              del documento.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>CSS3 y Flexbox</h3>
+            <p>
+              El layout de las tarjetas y la barra de navegación se construye
+              con Flexbox, facilitando la adaptación del diseño a distintos
+              tamaños de pantalla.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Diseño responsivo</h3>
+            <p>
+              Se utilizan unidades relativas y media queries para que la
+              interfaz se vea correctamente en dispositivos móviles,
+              tablets y escritorios.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ejemplo" class="section container">
+      <header>
+        <h2>Ejemplo de bloque de contenido</h2>
+      </header>
+
+      <article class="example-layout">
+        <div class="example-text">
+          <h3>Contenido principal</h3>
+          <p>
+            Este bloque demuestra cómo organizar el contenido principal y un
+            panel lateral usando Flexbox. En pantallas grandes se muestran en
+            dos columnas, y en pantallas pequeñas se apilan verticalmente.
+          </p>
+        </div>
+
+        <aside class="example-aside" aria-label="Información adicional">
+          <h4>Datos adicionales</h4>
+          <ul>
+            <li>Autor: Equipo de proyecto</li>
+            <li>Estándares: HTML5, CSS3</li>
+            <li>Objetivo: Práctica de W3C</li>
+          </ul>
+        </aside>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        Proyecto de demostración — Implementación de estándares W3C con HTML5 y CSS3.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
