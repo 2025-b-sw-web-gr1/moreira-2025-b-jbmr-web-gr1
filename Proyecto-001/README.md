@@ -1,9 +1,9 @@
 📘 Proyecto 001 – Diseño y Documentación de APIs RESTful (1 a Muchos)
 👥 Integrantes del Grupo
 
-Nombre del estudiante 1
+Jhonny Moreira
 
-Nombre del estudiante 2 (opcional)
+
 
 📌 Descripción del Proyecto
 
