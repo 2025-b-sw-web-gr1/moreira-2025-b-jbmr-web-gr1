@@ -1,0 +1,26 @@
+meta {
+  name: patch-player
+  type: http
+  seq: 11
+}
+
+patch {
+  url: https://jsonplaceholder.typicode.com/posts/1
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+        "title": "Título actualizado (PATCH)"
+      }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

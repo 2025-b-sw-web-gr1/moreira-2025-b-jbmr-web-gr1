@@ -1,0 +1,29 @@
+meta {
+  name: update-team
+  type: http
+  seq: 4
+}
+
+put {
+  url: https://jsonplaceholder.typicode.com/users/1
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+        "id": 1,
+        "name": "FC Barcelona",
+        "username": "fcbarcelona",
+        "email": "contact@fcbarcelona.com"
+      }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

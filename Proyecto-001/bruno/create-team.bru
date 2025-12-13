@@ -1,0 +1,28 @@
+meta {
+  name: create-team
+  type: http
+  seq: 3
+}
+
+post {
+  url: https://jsonplaceholder.typicode.com/users
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application
+}
+
+body:json {
+  {
+        "name": "Barcelona FC",
+        "username": "barca",
+        "email": "barca@example.com"
+      }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

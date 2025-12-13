@@ -1,0 +1,28 @@
+meta {
+  name: create-player
+  type: http
+  seq: 9
+}
+
+post {
+  url: https://jsonplaceholder.typicode.com/posts
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+        "title": "Jugador creado",
+        "body": "Este post representa un jugador asociado al equipo 1.",
+        "userId": 1
+      }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

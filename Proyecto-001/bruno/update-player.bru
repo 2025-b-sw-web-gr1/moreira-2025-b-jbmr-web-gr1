@@ -1,0 +1,29 @@
+meta {
+  name: update-player
+  type: http
+  seq: 10
+}
+
+put {
+  url: https://jsonplaceholder.typicode.com/posts/1
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+        "id": 1,
+        "title": "Jugador actualizado",
+        "body": "Actualización completa del jugador representado como post.",
+        "userId": 1
+      }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

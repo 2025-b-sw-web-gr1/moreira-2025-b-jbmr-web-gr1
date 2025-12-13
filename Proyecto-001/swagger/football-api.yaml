@@ -1,0 +1,260 @@
+openapi: 3.0.0
+
+info:
+  title: API RESTful – Equipos y Jugadores (JSONPlaceholder)
+  description: |
+    Documentación de una API RESTful con relación 1 a muchos.
+    
+    Para fines educativos, se utiliza la API pública JSONPlaceholder,
+    donde:
+      - Teams ≈ Users
+      - Players ≈ Posts
+      - 1 Team tiene muchos Players → posts?userId={id}
+
+  version: 1.0.0
+
+servers:
+  - url: https://jsonplaceholder.typicode.com
+    description: API pública de pruebas (JSONPlaceholder)
+
+tags:
+  - name: Teams
+    description: Equipos de fútbol (Users)
+  - name: Players
+    description: Jugadores (Posts)
+
+paths:
+  /users:
+    get:
+      tags: [Teams]
+      summary: Obtener todos los equipos
+      description: Retorna la lista de equipos (users).
+      responses:
+        '200':
+          description: Lista de equipos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+
+    post:
+      tags: [Teams]
+      summary: Crear un nuevo equipo (simulado)
+      description: Operación simulada por JSONPlaceholder.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamInput'
+            example:
+              name: Barcelona FC
+              username: barca
+              email: barca@example.com
+      responses:
+        '201':
+          description: Equipo creado (simulado)
+
+  /users/{id}:
+    get:
+      tags: [Teams]
+      summary: Obtener equipo por ID
+      parameters:
+        - $ref: '#/components/parameters/IdPath'
+      responses:
+        '200':
+          description: Equipo encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+
+    put:
+      tags: [Teams]
+      summary: Actualizar equipo (simulado)
+      parameters:
+        - $ref: '#/components/parameters/IdPath'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamInput'
+      responses:
+        '200':
+          description: Equipo actualizado (simulado)
+
+    delete:
+      tags: [Teams]
+      summary: Eliminar equipo (simulado)
+      parameters:
+        - $ref: '#/components/parameters/IdPath'
+      responses:
+        '200':
+          description: Equipo eliminado (simulado)
+
+  /posts:
+    get:
+      tags: [Players]
+      summary: Obtener todos los jugadores
+      description: Retorna todos los jugadores (posts).
+      parameters:
+        - in: query
+          name: userId
+          required: false
+          schema:
+            type: integer
+          description: Filtra jugadores por equipo (1 a muchos)
+          example: 1
+      responses:
+        '200':
+          description: Lista de jugadores
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Player'
+
+    post:
+      tags: [Players]
+      summary: Crear un nuevo jugador
+      description: Operación simulada por JSONPlaceholder.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlayerInput'
+            example:
+              title: Jugador creado
+              body: Representa un jugador del equipo 1
+              userId: 1
+      responses:
+        '201':
+          description: Jugador creado (simulado)
+
+  /posts/{id}:
+    get:
+      tags: [Players]
+      summary: Obtener jugador por ID
+      parameters:
+        - $ref: '#/components/parameters/IdPath'
+      responses:
+        '200':
+          description: Jugador encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Player'
+
+    put:
+      tags: [Players]
+      summary: Actualizar jugador completo
+      parameters:
+        - $ref: '#/components/parameters/IdPath'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlayerInput'
+      responses:
+        '200':
+          description: Jugador actualizado (simulado)
+
+    patch:
+      tags: [Players]
+      summary: Actualizar parcialmente jugador
+      parameters:
+        - $ref: '#/components/parameters/IdPath'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+      responses:
+        '200':
+          description: Jugador actualizado parcialmente
+
+    delete:
+      tags: [Players]
+      summary: Eliminar jugador
+      parameters:
+        - $ref: '#/components/parameters/IdPath'
+      responses:
+        '200':
+          description: Jugador eliminado (simulado)
+
+components:
+  parameters:
+    IdPath:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: Identificador del recurso
+      example: 1
+
+  schemas:
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: Leanne Graham
+        username:
+          type: string
+          example: Bret
+        email:
+          type: string
+          format: email
+          example: sincere@april.biz
+
+    TeamInput:
+      type: object
+      required: [name, username, email]
+      properties:
+        name:
+          type: string
+        username:
+          type: string
+        email:
+          type: string
+
+    Player:
+      type: object
+      properties:
+        userId:
+          type: integer
+          example: 1
+        id:
+          type: integer
+          example: 1
+        title:
+          type: string
+          example: Jugador ofensivo
+        body:
+          type: string
+          example: Descripción del jugador
+
+    PlayerInput:
+      type: object
+      required: [title, body, userId]
+      properties:
+        title:
+          type: string
+        body:
+          type: string
+        userId:
+          type: integer
