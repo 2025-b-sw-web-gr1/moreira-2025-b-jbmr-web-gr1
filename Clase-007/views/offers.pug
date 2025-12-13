@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1 Ofertas
+
+  if offers.length === 0
+    p Hoy no hay ofertas disponibles.
+  else
+    .grid
+      each product in offers
+        include partials/product-card.pug

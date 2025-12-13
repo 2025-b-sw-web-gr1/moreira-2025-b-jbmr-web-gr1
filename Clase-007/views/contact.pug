@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1 Contacto
+  p ¿Tienes preguntas? Escríbenos y te respondemos.
+
+  .contact
+    .contact-card
+      h3 Información
+      p Email: soporte@novashop.com
+      p Tel: +593 99 999 9999
+      p Quito, Ecuador
+
+    form.contact-form
+      label Nombre
+      input(type="text", placeholder="Tu nombre")
+      label Email
+      input(type="email", placeholder="tu@email.com")
+      label Mensaje
+      textarea(rows="5", placeholder="Escribe tu mensaje...")
+      button.btn.primary(type="button") Enviar (demo)

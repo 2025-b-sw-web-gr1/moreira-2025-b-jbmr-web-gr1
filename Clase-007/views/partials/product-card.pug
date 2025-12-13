@@ -1,0 +1,15 @@
+article.card
+  a.card-img(href=`/producto/${product.id}`)
+    img(src=product.image, alt=product.name)
+  .card-body
+    .card-top
+      h3.card-title
+        a(href=`/producto/${product.id}`)= product.name
+      span.badge= product.category
+    p.card-desc= product.description
+    .card-meta
+      span.price= formatMoney(product.price)
+      span.rating ⭐ #{product.rating}
+    .card-actions
+      a.btn(href=`/producto/${product.id}`) Ver detalle
+      button.btn.outline(type="button") Añadir

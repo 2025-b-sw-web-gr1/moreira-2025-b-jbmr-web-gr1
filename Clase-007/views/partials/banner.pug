@@ -1,0 +1,6 @@
+mixin banner(titleText, subtitleText, ctaText, ctaHref)
+  section.banner
+    h1= titleText
+    p= subtitleText
+    if ctaHref && ctaText
+      a.btn.primary(href=ctaHref)= ctaText

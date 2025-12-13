@@ -1,0 +1,23 @@
+doctype html
+html(lang="es")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title= title
+    link(rel="stylesheet", href="/css/styles.css")
+  body
+    header.nav
+      .nav-inner
+        a.brand(href="/") #{storeName || "NovaShop"}
+        nav.links
+          a(href="/") Inicio
+          a(href="/productos") Productos
+          a(href="/ofertas") Ofertas
+          a(href="/contacto") Contacto
+
+    main.container
+      block content
+
+    footer.footer
+      .container
+        p © #{new Date().getFullYear()} #{storeName || "NovaShop"} — Tienda demo con Pug + Express

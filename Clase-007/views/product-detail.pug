@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  a.back(href="/productos") ← Volver a productos
+
+  .detail
+    img.detail-img(src=product.image, alt=product.name)
+    .detail-info
+      h1= product.name
+      p.muted Categoría: #{product.category}
+      p= product.description
+
+      .detail-meta
+        p.price-big= formatMoney(product.price)
+        p ⭐ #{product.rating} | Stock: #{product.stock}
+
+      .detail-actions
+        button.btn.primary(type="button") Comprar ahora
+        button.btn.outline(type="button") Añadir al carrito

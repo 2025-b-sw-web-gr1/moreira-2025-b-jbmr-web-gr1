@@ -1,0 +1,10 @@
+extends layout
+include partials/banner.pug
+
+block content
+  +banner(storeName, tagline, "Ver productos", "/productos")
+
+  h2.section-title Destacados
+  .grid
+    each product in featured
+      include partials/product-card.pug
