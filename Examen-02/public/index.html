@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Gestión - Examen Web</title>
+    <style>
+        body { font-family: sans-serif; margin: 40px; background-color: #f4f4f4; }
+        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #333; }
+        input { padding: 10px; margin: 5px 0; width: 200px; display: block; }
+        button { padding: 10px 20px; background: #28a745; color: white; border: none; cursor: pointer; }
+        button:hover { background: #218838; }
+        table { width: 100%; margin-top: 20px; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f8f9fa; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registrar Nuevo Equipo</h1>
+        <form id="teamForm">
+            <input type="text" id="name" placeholder="Nombre del Equipo" required>
+            <input type="text" id="country" placeholder="País" required>
+            <button type="submit">Guardar en Base de Datos</button>
+        </form>
+
+        <hr>
+
+        <h2>Equipos Registrados</h2>
+        <button onclick="loadTeams()">Actualizar Lista</button>
+        <table id="teamsTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>País</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script>
+        // Función para Guardar
+        document.getElementById('teamForm').onsubmit = async (e) => {
+            e.preventDefault();
+            const data = {
+                name: document.getElementById('name').value,
+                country: document.getElementById('country').value
+            };
+
+            const response = await fetch('/teams', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                alert('¡Equipo guardado con éxito!');
+                document.getElementById('teamForm').reset();
+                loadTeams();
+            }
+        };
+
+        // Función para Ver
+        async function loadTeams() {
+            const response = await fetch('/teams');
+            const teams = await response.json();
+            const tbody = document.querySelector('#teamsTable tbody');
+            tbody.innerHTML = '';
+            
+            teams.forEach(team => {
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${team.id}</td>
+                        <td>${team.name}</td>
+                        <td>${team.country}</td>
+                    </tr>
+                `;
+            });
+        }
+
+        // Cargar al iniciar
+        loadTeams();
+    </script>
+</body>
+</html>
